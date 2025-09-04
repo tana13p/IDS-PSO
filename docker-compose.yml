@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  pso-api:
+    build: .
+    ports:
+      - "5000:5000"
+    command: ["/app/start.sh", "api"]
+    environment:
+      - FLASK_ENV=production
+      - PYTHONPATH=/app
+    volumes:
+      - ./results:/app/results
+    restart: unless-stopped
+
+  pso-dashboard:
+    build: .
+    ports:
+      - "8050:8050"
+    command: ["/app/start.sh", "dashboard"]
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - ./results:/app/results
+    restart: unless-stopped
+
+  pso-worker:
+    build: .
+    command: ["/app/start.sh", "example"]
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - ./results:/app/results
+    restart: "no"
