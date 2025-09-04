@@ -1,0 +1,8 @@
+feature_index,feature_name,importance_score
+1,malic_acid,0.7907845422549528
+2,ash,1.0
+4,magnesium,0.9827069268410673
+5,total_phenols,1.0
+10,hue,0.5704254263639474
+11,od280/od315_of_diluted_wines,0.9931460039278232
+12,proline,1.0
